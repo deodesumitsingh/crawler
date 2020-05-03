@@ -21,7 +21,8 @@ def validate_cmd_args(url, depth):
         print("Cannot process URL {} it not valid".format(url))
     if depth < 1:
         invalid_parameter = True
-        print("Cannot process request for URL {} because depth provided {} \
-              that should be greater than or equal to 1".format(url, depth))
+        msg = ("Cannot process request for URL {} because depth provided {}"
+               " that should be greater than or equal to 1")
+        print(msg.format(url, depth))
     if invalid_parameter:
         sys.exit(1)
