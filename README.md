@@ -15,6 +15,9 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```  
   
+### Run Test Case
+`python3 -m unittest discover -s test/test_*/ -p "test_*.py" -b`
+  
 ### Usage
 Crawler can be used as.  
 `python3 main.py -u/--url url_to_be_crawled -d/--depth upto_what_depth`.  
