@@ -36,9 +36,15 @@ def start_crawling(url, depths):
             print("No new links to crawl at depth {}. Stopping crawl"
                   .format(depth))
             break
-    file_util.crawled_links_to_file(domain_name, spider.crawled)
+    # total links found holds the all the links that has been
+    # crawled and already in queue
+    total_links_found = []
+    total_links_found.extend(spider.crawled)
+    total_links_found.extend(spider.queue)
+    file_util.crawled_links_to_file(domain_name, total_links_found)
     print_msg = ("\n\nCrawling is completed for URL {}.\n"
-                 "Please check the crawled file at {}/crawled.txt\n")
+                 "Please check the crawled file at \"{}/crawled.txt\" "
+                 "which consist of all the links that has been found.\n")
     print(print_msg.format(url, file_util.get_project_directory(domain_name)))
 
 
